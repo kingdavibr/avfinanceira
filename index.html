@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AV Financeira</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body { 
+      padding: 20px;
+      background-color: #0f5f10;
+    }
+    .form-section {
+      margin-bottom: 40px;
+    }
+    .form-control {
+      background-color: #ffffff;
+      color: #0f5f10;
+    }
+    h2 {
+      color: #ffffff;
+    }
+    .table tbody tr td {
+      color: #ffffff;
+    }
+    .action-buttons button { 
+      margin-right: 5px; 
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2 class="text-center mb-4">AV Financeira</h2>
+
+    <!-- Formulário -->
+    <div class="form-section">
+      <form id="financeForm">
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="data" style="color: #ffffff;">Data</label>
+            <input type="date" class="form-control" id="data" required>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="cliente" style="color: #ffffff;">Cliente</label>
+            <input type="text" class="form-control" id="cliente" required>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="cpfCliente" style="color: #ffffff;">CPF do Cliente</label>
+            <input type="text" class="form-control" id="cpfCliente" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required placeholder="000.000.000-00">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="valor" style="color: #ffffff;">Valor</label>
+            <input type="number" class="form-control" id="valor" required>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="formaPagamento" style="color: #ffffff;">Forma de Pagamento</label>
+            <select class="form-control" id="formaPagamento" required>
+              <option value="Dinheiro">Dinheiro</option>
+              <option value="Cartão de Crédito">Cartão de Crédito</option>
+              <option value="Cartão de Débito">Cartão de Débito</option>
+              <option value="Pix">Pix</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="destino" style="color: #ffffff;">Destino</label>
+            <input type="text" class="form-control" id="destino" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="nomePagador" style="color: #ffffff;">Nome do Pagador</label>
+            <input type="text" class="form-control" id="nomePagador" required>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="cpfPagador" style="color: #ffffff;">CPF do Pagador</label>
+            <input type="text" class="form-control" id="cpfPagador" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required placeholder="000.000.000-00">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="numeroDocumento" style="color: #ffffff;">Nº do Documento</label>
+            <input type="text" class="form-control" id="numeroDocumento" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Adicionar Registro</button>
+        <button type="button" class="btn btn-success ml-2" onclick="exportarParaExcel()">Exportar para Excel</button>
+      </form>
+    </div>
+
+    <!-- Tabela de Registros -->
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>Data</th>
+            <th>Cliente</th>
+            <th>CPF do Cliente</th>
+            <th>Valor</th>
+            <th>Forma de Pagamento</th>
+            <th>Destino</th>
+            <th>Nome do Pagador</th>
+            <th>CPF do Pagador</th>
+            <th>Nº do Documento</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="financeTableBody">
+          <!-- Linhas adicionadas dinamicamente -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.30.0/dist/supabase.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
