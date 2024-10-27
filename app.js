@@ -1,6 +1,6 @@
 // Inicialização do Supabase
-const SUPABASE_URL = '<https://xolulnxuvxjmkkeqcnmf.supabase.co>';
-const SUPABASE_ANON_KEY = '<eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhvbHVsbnh1dnhqbWtrZXFjbm1mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzAwNDI4MzcsImV4cCI6MjA0NTYxODgzN30.YGaC_8YKpEbXV6FEEDAgbZXhCzNcT3YrZRK7bXsOEkI>';
+const SUPABASE_URL = 'https://xolulnxuvxjmkkeqcnmf.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhvbHVsbnh1dnhqbWtrZXFjbm1mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzAwNDI4MzcsImV4cCI6MjA0NTYxODgzN30.YGaC_8YKpEbXV6FEEDAgbZXhCzNcT3YrZRK7bXsOEkI';
 const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // Carregar registros ao iniciar
